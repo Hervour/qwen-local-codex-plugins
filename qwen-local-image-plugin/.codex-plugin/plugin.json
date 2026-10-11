@@ -1,0 +1,33 @@
+{
+  "name": "qwen-local-image",
+  "version": "0.2.0",
+  "description": "Generate and edit images locally with Qwen-Image 2.1 through ComfyUI, including text-to-image, image editing, and Manga Drawer pages.",
+  "author": {
+    "name": "Local"
+  },
+  "keywords": [
+    "qwen",
+    "image-generation",
+    "image-edit",
+    "manga",
+    "comfyui",
+    "local"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Qwen Local Image",
+    "shortDescription": "Generate, edit, and compose manga with local Qwen-Image.",
+    "longDescription": "Adds local ComfyUI workflows to Codex for Qwen-Image 2.1 text-to-image, reference-image editing, and Manga Drawer storyboard-to-page generation.",
+    "developerName": "Local",
+    "category": "Creative",
+    "capabilities": [
+      "Write",
+      "Interactive"
+    ],
+    "defaultPrompt": [
+      "用本地 Qwen 生成一张电影感人物插画",
+      "用本地 Qwen 修改这张图片的背景",
+      "把这个故事画成一张四格漫画"
+    ]
+  }
+}

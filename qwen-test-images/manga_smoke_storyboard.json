@@ -1,0 +1,19 @@
+{
+  "project": "plugin_smoke_test",
+  "style": "clean black-and-white manga, simple confident line art, subtle screentone shading",
+  "character": "a friendly cylindrical robot with round glowing eyes, simple mechanical arms",
+  "negative_prompt": "text, watermark, logo, extra limbs, blurry",
+  "base_seed": 424242,
+  "defaults": {
+    "width": 512,
+    "height": 512,
+    "resolution": 512
+  },
+  "panels": [
+    {
+      "id": "p01",
+      "prompt": "the friendly robot waves hello in a simple quiet room, medium shot",
+      "dialogue": ["Hello!"]
+    }
+  ]
+}

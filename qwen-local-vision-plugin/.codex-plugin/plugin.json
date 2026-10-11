@@ -1,0 +1,34 @@
+{
+  "name": "qwen-local-vision",
+  "version": "0.2.0",
+  "description": "Read and understand local images (screenshots, photos, QQ attachments, generated art) with a local Ollama vision model, or with any OpenAI-compatible vision API.",
+  "author": {
+    "name": "Local"
+  },
+  "keywords": [
+    "vision",
+    "vlm",
+    "ocr",
+    "image-understanding",
+    "ollama",
+    "qwen-vl",
+    "local"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Qwen Local Vision",
+    "shortDescription": "Let Codex see local image files: local VLM or vision API.",
+    "longDescription": "Bridges local image files to vision models so Codex can describe, OCR, and answer questions about images that arrive as file paths (e.g. QQ attachments) instead of attachments. Defaults to a local Ollama VLM (images never leave the machine) and can switch to any OpenAI-compatible vision API such as Qwen-VL, GLM-4V, Doubao, GPT-4o, or Gemini.",
+    "developerName": "Local",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Interactive"
+    ],
+    "defaultPrompt": [
+      "看看这张图里有什么",
+      "识别这张截图里的文字",
+      "这张图是什么风格，帮我写一段生成它的 prompt"
+    ]
+  }
+}

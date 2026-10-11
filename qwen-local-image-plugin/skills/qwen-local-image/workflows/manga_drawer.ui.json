@@ -1,0 +1,884 @@
+{
+  "id": "manga-drawer-batch",
+  "revision": 0,
+  "last_node_id": 12,
+  "last_link_id": 22,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "MangaStoryboardLoader",
+      "pos": [
+        40,
+        80
+      ],
+      "size": [
+        520,
+        200
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING",
+          "links": [
+            2
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "links": [
+            15
+          ],
+          "slot_index": 2
+        },
+        {
+          "name": "resolution",
+          "type": "INT",
+          "links": [
+            3
+          ],
+          "slot_index": 3
+        },
+        {
+          "name": "frame_image",
+          "type": "STRING",
+          "links": [
+            4
+          ],
+          "slot_index": 4
+        },
+        {
+          "name": "character_image",
+          "type": "STRING",
+          "links": [
+            5
+          ],
+          "slot_index": 5
+        },
+        {
+          "name": "panel_id",
+          "type": "STRING",
+          "links": [
+            20
+          ],
+          "slot_index": 6
+        },
+        {
+          "name": "panel_index",
+          "type": "INT",
+          "links": [
+            19
+          ],
+          "slot_index": 7
+        },
+        {
+          "name": "total_panels",
+          "type": "INT",
+          "links": [
+            22
+          ],
+          "slot_index": 8
+        },
+        {
+          "name": "dialogue_json",
+          "type": "STRING",
+          "links": [
+            21
+          ],
+          "slot_index": 9
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MangaStoryboardLoader"
+      },
+      "widgets_values": [
+        "C:/Users/LHW66/Documents/Codex/2026-09-23/abenzerps-qwen-image-2-1-uncensored/outputs/manga_drawer/storyboard.json",
+        "manga drawer",
+        768,
+        768
+      ],
+      "widgets_values_named": {
+        "storyboard_path": "C:/Users/LHW66/Documents/Codex/2026-09-23/abenzerps-qwen-image-2-1-uncensored/outputs/manga_drawer/storyboard.json",
+        "output_dir": "manga drawer",
+        "default_width": 768,
+        "default_height": 768
+      }
+    },
+    {
+      "id": 2,
+      "type": "MangaImageLoader",
+      "pos": [
+        610,
+        80
+      ],
+      "size": [
+        430,
+        360
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_path",
+          "type": "STRING",
+          "widget": {
+            "name": "image_path"
+          },
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MangaImageLoader"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "image_path": ""
+      }
+    },
+    {
+      "id": 3,
+      "type": "MangaImageLoader",
+      "pos": [
+        610,
+        490
+      ],
+      "size": [
+        430,
+        360
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_path",
+          "type": "STRING",
+          "widget": {
+            "name": "image_path"
+          },
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MangaImageLoader"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "image_path": ""
+      }
+    },
+    {
+      "id": 4,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        40,
+        340
+      ],
+      "size": [
+        430,
+        60
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            10
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "qwen-image-2.1-UC-Q4_K_M.gguf"
+      ],
+      "widgets_values_named": {
+        "unet_name": "qwen-image-2.1-UC-Q4_K_M.gguf"
+      }
+    },
+    {
+      "id": 5,
+      "type": "CLIPLoader",
+      "pos": [
+        40,
+        450
+      ],
+      "size": [
+        430,
+        105
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            8
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_8b_int8_convrot.safetensors",
+        "qwen_image",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
+        "type": "qwen_image",
+        "device": "default"
+      }
+    },
+    {
+      "id": 6,
+      "type": "VAELoader",
+      "pos": [
+        40,
+        605
+      ],
+      "size": [
+        430,
+        60
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            9,
+            17
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "qwen_image_2.1_vae_bf16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+      }
+    },
+    {
+      "id": 7,
+      "type": "TextEncodeQwenImage21",
+      "pos": [
+        1100,
+        80
+      ],
+      "size": [
+        580,
+        390
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 8
+        },
+        {
+          "name": "images.image_1",
+          "type": "IMAGE",
+          "link": 6,
+          "shape": 7
+        },
+        {
+          "name": "images.image_2",
+          "type": "IMAGE",
+          "link": 7,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 9,
+          "shape": 7
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 1
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "negative_prompt"
+          },
+          "link": 2
+        },
+        {
+          "name": "resolution",
+          "type": "INT",
+          "widget": {
+            "name": "resolution"
+          },
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            12
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            13
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            14
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextEncodeQwenImage21"
+      },
+      "widgets_values": [
+        "",
+        "",
+        768
+      ],
+      "widgets_values_named": {
+        "prompt": "",
+        "negative_prompt": "",
+        "resolution": 768
+      }
+    },
+    {
+      "id": 8,
+      "type": "QwenImage21Cache",
+      "pos": [
+        1740,
+        80
+      ],
+      "size": [
+        360,
+        110
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            11
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "QwenImage21Cache"
+      },
+      "widgets_values": [
+        "auto",
+        "int8"
+      ],
+      "widgets_values_named": {
+        "device": "auto",
+        "dtype": "int8"
+      }
+    },
+    {
+      "id": 9,
+      "type": "KSampler",
+      "pos": [
+        1740,
+        240
+      ],
+      "size": [
+        320,
+        300
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 11
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 12
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 13
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 14
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            16
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        0,
+        "fixed",
+        25,
+        1,
+        "euler",
+        "simple",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 0,
+        "control_after_generate": "fixed",
+        "steps": 25,
+        "cfg": 1,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 10,
+      "type": "VAEDecode",
+      "pos": [
+        2140,
+        80
+      ],
+      "size": [
+        250,
+        60
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 16
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            18
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "MangaPageComposer",
+      "pos": [
+        2460,
+        80
+      ],
+      "size": [
+        480,
+        430
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 18
+        },
+        {
+          "name": "panel_index",
+          "type": "INT",
+          "widget": {
+            "name": "panel_index"
+          },
+          "link": 19
+        },
+        {
+          "name": "panel_id",
+          "type": "STRING",
+          "widget": {
+            "name": "panel_id"
+          },
+          "link": 20
+        },
+        {
+          "name": "dialogue_json",
+          "type": "STRING",
+          "widget": {
+            "name": "dialogue_json"
+          },
+          "link": 21
+        },
+        {
+          "name": "total_panels",
+          "type": "INT",
+          "widget": {
+            "name": "total_panels"
+          },
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "page_or_panel",
+          "type": "IMAGE",
+          "links": null,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MangaPageComposer"
+      },
+      "widgets_values": [
+        0,
+        "p01",
+        "[]",
+        1,
+        "manga drawer",
+        2,
+        2,
+        20,
+        40,
+        1600,
+        true
+      ],
+      "widgets_values_named": {
+        "panel_index": 0,
+        "panel_id": "p01",
+        "dialogue_json": "[]",
+        "total_panels": 1,
+        "output_dir": "manga drawer",
+        "rows": 2,
+        "cols": 2,
+        "gutter": 20,
+        "margin": 40,
+        "page_width": 1600,
+        "add_bubbles": true
+      }
+    },
+    {
+      "id": 12,
+      "type": "MarkdownNote",
+      "pos": [
+        40,
+        -180
+      ],
+      "size": [
+        1180,
+        280
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "????????\nC:\\Users\\LHW66\\Documents\\Codex\\2026-09-23\\abenzerps-qwen-image-2-1-uncensored\\outputs\\manga_drawer\\storyboard.json\n\n- style?????????\n- character???????\n- negative_prompt????????\n- panels[].prompt?????????\n- panels[].dialogue??????\n- panels[].frame????????????????????????\n\n???Text Encode ???? prompt?negative_prompt?resolution ?? Storyboard Loader ????????????????????\n???? Queue ????????????? panel??????? 2x2 ????\n\n???? aimdo memory compile error????? --disable-dynamic-vram --lowvram ???start_comfyui.bat ???????"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      7,
+      4,
+      "STRING"
+    ],
+    [
+      2,
+      1,
+      1,
+      7,
+      5,
+      "STRING"
+    ],
+    [
+      3,
+      1,
+      3,
+      7,
+      6,
+      "INT"
+    ],
+    [
+      4,
+      1,
+      4,
+      2,
+      0,
+      "STRING"
+    ],
+    [
+      5,
+      1,
+      5,
+      3,
+      0,
+      "STRING"
+    ],
+    [
+      6,
+      2,
+      0,
+      7,
+      1,
+      "IMAGE"
+    ],
+    [
+      7,
+      3,
+      0,
+      7,
+      2,
+      "IMAGE"
+    ],
+    [
+      8,
+      5,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      9,
+      6,
+      0,
+      7,
+      3,
+      "VAE"
+    ],
+    [
+      10,
+      4,
+      0,
+      8,
+      0,
+      "MODEL"
+    ],
+    [
+      11,
+      8,
+      0,
+      9,
+      0,
+      "MODEL"
+    ],
+    [
+      12,
+      7,
+      0,
+      9,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      13,
+      7,
+      1,
+      9,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      14,
+      7,
+      2,
+      9,
+      3,
+      "LATENT"
+    ],
+    [
+      15,
+      1,
+      2,
+      9,
+      4,
+      "INT"
+    ],
+    [
+      16,
+      9,
+      0,
+      10,
+      0,
+      "LATENT"
+    ],
+    [
+      17,
+      6,
+      0,
+      10,
+      1,
+      "VAE"
+    ],
+    [
+      18,
+      10,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      1,
+      7,
+      11,
+      1,
+      "INT"
+    ],
+    [
+      20,
+      1,
+      6,
+      11,
+      2,
+      "STRING"
+    ],
+    [
+      21,
+      1,
+      9,
+      11,
+      3,
+      "STRING"
+    ],
+    [
+      22,
+      1,
+      8,
+      11,
+      4,
+      "INT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.55,
+      "offset": [
+        120,
+        120
+      ]
+    }
+  },
+  "version": 0.4
+}
